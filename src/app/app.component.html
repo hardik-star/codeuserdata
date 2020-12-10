@@ -1,0 +1,25 @@
+<div class="container">
+<div class="jumbotron">
+      <h2 style="text-align: center;">User List</h2>      
+ </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">UserId</th>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Completed</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let d of data | paginate: { itemsPerPage: 10, currentPage: p} " >
+    <tr>
+      <th scope="row">{{ d.userId }}</th>
+      <td>{{ d.id }}</td>
+      <td>{{ d.title }}</td>
+      <td>{{ d.completed }}</td>
+    </tr>
+</tbody>
+  <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+</table>
+</div>
